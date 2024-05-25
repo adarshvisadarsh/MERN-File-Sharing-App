@@ -41,13 +41,35 @@ input:focus-visible {
   outline: none;
 }
 
-button {
-  width: 150px;
-  height: 40px;
-  border-radius: 5px;
-  background-color: #445A6F;
-  border: 1px solid #445A6F;
+.upload-btn, .link-btn, .copy-btn {
+  background-color: #0066cc;
   color: #fff;
-  font-size: 20px;
-  margin: 30px 0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin: 10px 5px;
+}
+
+.upload-btn:hover, .link-btn:hover, .copy-btn:hover {
+  background-color: #005bb5;
+}
+
+.success-msg {
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.download-link:hover {
+  text-decoration: underline;
 }

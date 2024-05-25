@@ -27,6 +27,12 @@ function App() {
     getImage();
 
   }, [file])
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(result);
+    alert('Link copied to clipboard!');
+  };
+  
   return (
     <div className='container'>
      
@@ -34,16 +40,21 @@ function App() {
         <h1>Simple file sharing!</h1>
         <p>Upload and share the download link.</p>
 
-        <button onClick={() => onUploadClick()}>Upload</button>
+        <button className="upload-btn" onClick={onUploadClick}>Upload</button>
         <input
           type="file"
           ref={fileInputRef}
           style={{ display: "none" }}
           onChange={(e) => setFile(e.target.files[0])}
         />
-        {result && <p>upload successfully</p>}
-        {result && <button onClick={() => setClick(true)}>Get link</button>}
-        {click && <a href={result} target='_blank'>{result}</a>}
+        {result && <p className="success-msg">File uploaded successfully!</p>}
+       {result && (
+          <div>
+            <button className="link-btn" onClick={() => setClick(true)}>Get Link</button>
+            <button className="copy-btn" onClick={copyToClipboard}>Copy Link</button>
+          </div>
+        )}
+        {click && <a className="download-link" href={result} target="_blank" rel="noopener noreferrer">{result}</a>}
       </div>
     </div>
   );
